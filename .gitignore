@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.gitignore
+#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
