@@ -23,4 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 .gitignore
+.git/info/exclude
 #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
