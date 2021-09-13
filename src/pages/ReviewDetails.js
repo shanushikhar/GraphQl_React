@@ -1,9 +1,22 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
+import useFetch from '../hooks/useFetch'
 
 export default function ReviewDetails() {
+    const { id } = useParams()
+    const { loading, error, data } = useFetch('http://localhost:1337/test-reviews/' + id)
+
+    if (loading) return <p>Loading...</p>
+    if (error) return <p>Error :(</p>
+
     return (
-        <div>
-            ReviewDetails
+        <div className='review-card'>
+            <div className='rating'>{data.rating}</div>
+            <h2>{data.title}</h2>
+
+            <small>Console list</small>
+
+            <p>{data.body}</p>
         </div>
     )
 }
