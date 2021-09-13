@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { useQuery, gql } from '@apollo/client'
+import { useQuery, gql } from '@apollo/client' 
 
 const CATEGORY = gql`
     query getCategory($id: ID!){
