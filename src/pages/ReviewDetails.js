@@ -9,7 +9,11 @@ const REVIEW = gql`
         title,
         id,
         rating,
-        body
+        body,
+        test_categories{
+            name,
+            id
+        }
        }
     }
 `
@@ -24,14 +28,16 @@ export default function ReviewDetails() {
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error :(</p>
 
-    console.log(data)
+    console.log('review details ', data.testReview.test_categories)
 
     return (
         <div className='review-card'>
             <div className='rating'>{data.testReview.rating}</div>
             <h2>{data.testReview.title}</h2>
 
-            <small>Console list</small>
+            {data.testReview.test_categories.map(c => (
+                <small key={c.id}>{c.name}</small>
+            ))}
 
             <p>{data.testReview.body}</p>
         </div>
